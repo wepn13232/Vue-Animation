@@ -11,28 +11,27 @@
 	export default {
 		name: "animation",
 		/*
-		* duration 动画持续时间（s）
+		* duration 动画持续时间（ms）
 		* delay 动画延迟执行时间（ms）
 		* */
 		props: ['duration', 'delay'],
 		data() {
-			return {}
+			return {
+				dom: ""
+			}
 		},
 		methods: {
 			//改变持续时间
 			changeDuration() {
-				let a = document.getElementById('animationFade');
-				a.style.animationDuration = this.duration + 's';
-				a = "";
+				this.dom.style.animationDuration = this.duration + 'ms';
 			},
 			//改变延迟时间
 			changeDelay() {
-				let a = document.getElementById('animationFade');
-				a.style.animationDelay = this.delay + 'ms';
-				a = "";
+				this.dom.style.animationDelay = this.delay + 'ms';
 			}
 		},
 		mounted() {
+			this.dom = document.getElementById('animationFade')
 			//持续时间
 			try {
 				if (this.duration) {
@@ -50,11 +49,12 @@
 			} catch (e) {
 				console.log(e)
 			}
-
+			//	清空
+			this.dom = "";
 		}
 	}
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+	@import "./animation-Fade";
 </style>

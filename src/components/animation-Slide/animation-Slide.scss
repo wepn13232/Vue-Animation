@@ -1,24 +1,26 @@
-.animationFade {
+.animationSlide {
   opacity: 0;
-  animation: vue-fade ease;
+  animation: vue-slide ease;
   animation-duration: 1000ms;
   animation-fill-mode: forwards;
-  position: absolute;
   animation-delay: 300ms;
+  position: absolute;
+  transform: translate(0, -100%);
 
-  //div:nth-child(1){
+  //div:nth-child(1) {
   //  width: 100%;
   //  height: 100%;
   //}
 }
 
 
-@keyframes vue-fade {
+@keyframes vue-slide {
   0% {
     opacity: 0;
   }
 
   100% {
     opacity: 1;
+    transform: translate(0, 0);
   }
 }
